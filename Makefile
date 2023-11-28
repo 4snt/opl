@@ -46,7 +46,7 @@ DECI2_DEBUG ?= 0
 REVISION = $(shell expr $(shell git rev-list --count HEAD) + 2)
 
 GIT_HASH = $(shell git rev-parse --short=7 HEAD 2>/dev/null)
-ifeq ($(shell git diff --quiet; echo $$?),1)
+ifeq ($(shell git diff; echo $$?),1)
   DIRTY = -dirty
 endif
 ifneq ($(shell test -d .git; echo $$?),0)
